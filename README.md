@@ -1,7 +1,7 @@
 # laravel-aws
 #laravel integration on aws, #deploy laravel on aws, #distribute laravel on AWS
 
-** Steps **
+# Steps 
 - AWS integration 
 - go to Aws from console panel and create below services to distribute laravel application on it
 - AWS Requirement:
@@ -24,7 +24,7 @@ There are two method command line (eb) and direct login to that instance and dep
 This is command line (eb) method :
 
 
--- First time deployment:
+# First time deployment:
 
 1. Open any folder say aws_laravel in local.
 2. Cd to this folder and Use gitbash tool to in it.
@@ -91,15 +91,15 @@ on command line from root of folder run below commands:
 
 ./.aws_deploy.sh production ( this should be in master branch, this will run worker environment automatically)
 
--- Rollback
+# Rollback
 
 For this we should go to console of that environment and select version to deploy : https://console.aws.amazon.com/elasticbeanstalk/home
 
 OR by command line  : eb deploy <environment> --version version_label
 Example : eb deploy production –version test1
 
--- Note : We have to use worker tier for cron job to be run. Because in load balancer, it will dulicate if we use same instance. So better to use worker tier so it will runs per active environment.
--------
+# worker
+- We have to use worker tier for cron job to be run. Because in load balancer, it will dulicate if we use same instance. So better to use worker tier so it will runs per active environment.
 
 - Worker Environment creation for CRON: This is a safest way.
  - Create worker environment from aws console on same env. And set HTTP_path : worker/schedule
@@ -127,7 +127,7 @@ eb deploy worker-app -nh
 The -nh flag tells the eb command not to wait until the deploy completes before returning. The first command deploys to the default environment, the second deploys to the environment named worker-app. 
 - Both environments should have same server setting.
 
--- QUEUE
+# QUEUE
 - For queue usage we have to set SQS queue setting in config/queue and set QUEUE_DRIVER = sqs. 
 - Need to set the Queue Driver = database inside the .env file for local but for aws it should be QUEUE_DRIVER = sqs.
 - Do this in local if you want to start queue without supervisor : `php artisan queue:work` 
@@ -135,11 +135,11 @@ The -nh flag tells the eb command not to wait until the deploy completes before 
 - Restart : php artisan queue:restart
 - For AWS queue : https://github.com/dusterio/laravel-aws-worker
 
--- REDIS – AWS ElasticCache for Redis: session storage
+# REDIS – AWS ElasticCache for Redis: session storage
 - Create redis cluster form server: ElasticCache. Redis
 - create security group that supports TCP.
 
--- REF :
+# REF :
 - For s3 package: composer require league/flysystem-aws-s3-v3 if required
 - For AWS Elastic Search: composer require jsq/amazon-es-php if required
 - YAML File format - http://www.yamllint.com/
