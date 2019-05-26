@@ -127,6 +127,24 @@ eb deploy worker-app -nh
 The -nh flag tells the eb command not to wait until the deploy completes before returning. The first command deploys to the default environment, the second deploys to the environment named worker-app. 
 - Both environments should have same server setting.
 
+-- QUEUE
+- For queue usage we have to set SQS queue setting in config/queue and set QUEUE_DRIVER = sqs. 
+- Need to set the Queue Driver = database inside the .env file for local but for aws it should be QUEUE_DRIVER = sqs.
+- Do this in local if you want to start queue without supervisor : `php artisan queue:work` 
+- for linux we have to set supervisor to run queue 
+- Restart : php artisan queue:restart
+- For AWS queue : https://github.com/dusterio/laravel-aws-worker
+
+-- REDIS – AWS ElasticCache for Redis: session storage
+- Create redis cluster form server: ElasticCache. Redis
+- create security group that supports TCP.
+
+-- REF :
+- For s3 package: composer require league/flysystem-aws-s3-v3 if required
+- For AWS Elastic Search: composer require jsq/amazon-es-php if required
+- YAML File format - http://www.yamllint.com/
+- queue : https://github.com/dusterio/laravel-aws-worker
+
 
 
 
