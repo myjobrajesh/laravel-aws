@@ -1,5 +1,5 @@
-# laravel-aws
-#laravel integration on aws, #deploy laravel on aws, #distribute laravel on AWS
+# laravel deployment on aws
+# laravel integration on aws, #deploy laravel on aws, #distribute laravel on AWS
 
 # Steps 
 - AWS integration 
@@ -7,7 +7,7 @@
 - AWS Requirement:
 1. Staging server-instance
 2. Production server instance
-3.Worker server instance for production cron, this will create sqs queue automatically. Make sure queue should restart by: php artisan queue:restart
+3. Worker server instance for production cron, this will create sqs queue automatically. Make sure queue should restart by: php artisan queue:restart
 4.SQS - queue if required
 5.Elastic Search service
 6. S3 bucket (file-bucket) for files storage
