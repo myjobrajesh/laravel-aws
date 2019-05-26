@@ -43,13 +43,7 @@ else
         cp ${ENV_FILE} ${ENV_MAIN_FILE}
 
         eb deploy ${ENV_NAME} --label ${LBL} --message "${MSG}"
-
-        #after testing this will be removed as this is not required on staging.
-        #TODO:: will seperate worker env in future.
-        echo "Worker Env running:"
-        LBL=${WORKER_ENV}'-'${NOW}
-        eb deploy ${WORKER_ENV} --label ${LBL} --message "${MSG}"
-
+        # we dont require worker env for staging test.
 fi
 
-echo "Deployment end"
+echo " end"
