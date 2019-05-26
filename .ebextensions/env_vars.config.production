@@ -6,7 +6,7 @@ Resources:
         S3AccessCred:
           type: "S3"
           roleName: "aws-elasticbeanstalk-ec2-role"
-          buckets: "happrodenv"
+          buckets: "envbucket"
 
 files:
   "/tmp/.env" :
