@@ -8,6 +8,7 @@
 1. Staging server-instance
 2. Production server instance
 3. Worker server instance for production cron, this will create sqs queue automatically. Make sure queue should restart by: php artisan queue:restart
+
 4.SQS - queue if required
 5.Elastic Search service
 6. S3 bucket (file-bucket) for files storage
